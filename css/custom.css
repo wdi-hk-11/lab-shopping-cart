@@ -1,0 +1,23 @@
+#main {
+  margin: 0 auto;
+  width: 80%;
+}
+
+section {
+  margin-top: 20px;
+}
+
+#items-list {
+  padding: 20px;
+  border: 1px solid grey;
+}
+
+#items-list > div.row > div {
+  line-height: 2em;
+  padding-bottom: 20px
+}
+
+#new-item {
+  padding: 20px;
+  border: 1px solid grey;
+}

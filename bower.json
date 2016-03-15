@@ -1,0 +1,25 @@
+{
+  "name": "lab-shopping-cart-angular",
+  "homepage": "https://github.com/wdi-hk-10/lab-shopping-cart",
+  "authors": [
+    "Willie Tong <tongsinyin@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "angular": "^1.5.0"
+  }
+}

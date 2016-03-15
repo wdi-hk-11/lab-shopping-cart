@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="ShoppingCartApp">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
@@ -8,67 +8,53 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
     <script src="js/application.js"></script>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
   </head>
-  <body>
-    <section class="container">
-      <div class="row">
-        <div class="cart-title col-xs-12">
-          <h1>
-          Shopping Cart
-          </h1>
+  <body ng-controller="ShoppingCartController">
+    <div id="main" class="container-fluid">
+      <h1>Shopping Cart</h1>
+
+      <section id="items-list" class="container-fluid">
+        <div class="row" ng-repeat="item in items">
+          <div class="col-xs-4">{{item.name}}</div>
+          <div class="col-xs-3">${{item.price.toFixed(2)}}</div>
+          <div class="col-xs-3">
+            <label>QTY</label>
+            <input class="quantity" value="0" ng-model="item.quantity" ng-change="updateQuantity($index)">
+            <button type="button" class="btn btn-default" ng-click="removeItem($index)">Cancel</button>
+          </div>
+          <div class="col-xs-2">${{item.subtotal.toFixed(2)}}</div>
         </div>
-      </div>
-    </section>
-    <section id="items-list" class="container">
-      <div class="item row">
-        <div class="item-name col-xs-4">
-          Salmon
+      </section>
+      <section id="new-item">
+        <div class="row">
+          <div class="col-xs-4">
+            <label>Item</label>
+            <input type="text" ng-model="newItem.name">
+          </div>
+          <div class="col-xs-3">
+            <label>Price</label>
+            <input type="text" ng-model="newItem.price">
+          </div>
+          <div class="col-xs-3">
+            <button type="button" class="btn btn-primary" ng-click="createItem()">Create</button>
+          </div>
         </div>
-        <div class="item-price col-xs-3">
-          $60.00
+      </section>
+      <section>
+        <div class="row">
+          <div class="col-xs-3 col-xs-offset-9">
+            <button type="button" class="btn btn-success pull-right" ng-click="calculateTotal()">
+              Calculate Prices
+            </button>
+          </div>
         </div>
-        <div class="item-qty col-xs-3">
-          <label>QTY</label>
-          <input class="quantity" value="0">
-          <button class="cancel">Cancel</button>
-        </div>
-        <div class="item-subtotal col-xs-2">
-          $0.00
-        </div>
-      </div>
-      <div class="item row">
-        <div class="col-xs-4">
-          <input id="new-item-name">
-        </div>
-        <div class="col-xs-3">
-          <input id="new-item-unit-price">
-        </div>
-        <div class="col-xs-3">
-          <button id="new-item-create">Create</button>
-        </div>
-      </div>
-      <div class="item row">
-        <div class="col-xs-3 col-xs-offset-9">
-          <button id="calc-prices-button" type="button" data-button='{"id": "3424"}' class="btn btn-success">
-            Calculate Prices
-          </button>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <h1 class="total-price-label">
-            Total Price:
-          </h1>
-          <h1 id="total-price">
-            $0.00
-          </h1>
-        </div>
-      </div>
-    </section>
+        <h1>Total Price: ${{totalPrice.toFixed(2)}}</h1>
+      </section>
+    </div>
   </body>
 </html>

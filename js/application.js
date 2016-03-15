@@ -1,73 +1,41 @@
-$(document).ready(function(){
-  var calculateTotal = function() {
-    var total = 0;
-    $('.item-subtotal').each(function(index, subtotal) {
-      total += Number($(subtotal).text().trim().substring(1));
+var cartApp = angular.module('ShoppingCartApp', []);
+
+cartApp.controller('ShoppingCartController', ['$scope', function($scope) {
+  $scope.newItem = { name: '', price: 0.0, quantity: 0, subtotal: 0.0 };
+  $scope.items = [];
+  $scope.totalPrice = 0;
+
+  $scope.createItem = function() {
+    $scope.items.push({
+      name: $scope.newItem.name,
+      price: Number($scope.newItem.price),
+      quantity: $scope.newItem.quantity,
+      subtotal: $scope.newItem.subtotal
     });
 
-    $('#total-price').text('$' + total.toFixed(2));
+    $scope.newItem.name = '';
+    $scope.newItem.price = 0.0;
   };
 
-  var updateQuantity = function(event) {
-    var $target = $(event.target);
-    var quantity = $target.val();
-    if ($.isNumeric(quantity)) {
-      var $item = $target.parents('.item');
-      var $subtotal = $item.find('.item-subtotal');
-      var price = $item.find('.item-price').text().trim().substring(1);
-      $subtotal.text('$' + (Number(quantity) * Number(price)).toFixed(2));
-
-      calculateTotal();
-    }
-  };
-
-  var removeItem = function(event) {
-    $(event.target).parents('.item').remove();
-
-    calculateTotal();
-  };
-
-  var createItem = function(){
-    var itemName = $('#new-item-name').val();
-    var itemUnitPrice = $('#new-item-unit-price').val();
-
-    // must check price is integer
-    if ($.isNumeric(itemUnitPrice) === false){
-      alert('Unit price must be a number');
-    } else if (itemName === ''){
-      alert('Item name cannot be empty');
+  $scope.updateQuantity = function($index) {
+    var item = $scope.items[$index];
+    if (isFinite(item.quantity)) {
+      item.subtotal = item.price * item.quantity;
     } else {
-      itemUnitPrice = Number(itemUnitPrice).toFixed(2);
-      var newItem = '' +
-      '<div class="item row">' +
-        '<div class="item-name col-xs-4">'+ itemName + '</div>' +
-        '<div class="item-price col-xs-3">$'+ itemUnitPrice + '</div>' +
-        '<div class="item-qty col-xs-3">' +
-          '<label>QTY</label>' +
-          '<input class="quantity" value="0">' +
-          '<button class="cancel">Cancel</button>' +
-        '</div>' +
-        '<div class="item-subtotal col-xs-2"> $0.00 </div>' +
-      '</div>';
-
-      $(newItem).prependTo($('#items-list')).slideDown('slow');
-      $('#new-item-name').val('');
-      $('#new-item-unit-price').val('');
-
-      $('input.quantity').off().on('keyup', updateQuantity);
-      $('.cancel').off().on('click', removeItem);
+      item.subtotal = 0;
     }
+    $scope.calculateTotal();
   };
 
-  var init = function() {
-    // Event listeners set up
-    $('#calc-price-button').on('click', calculateTotal);
-    $('#new-item-create').on('click', createItem);
+  $scope.calculateTotal = function() {
+    $scope.totalPrice = $scope.items.reduce(function(total, item) {
+      return total + item.subtotal;
+    }, 0);
+  };
 
-    // Just in case if there are any hard-coded items here
-    $('input.quantity').on('keyup', updateQuantity);
-    $('.cancel').on('click', removeItem);
+  $scope.removeItem = function($index) {
+    $scope.items.splice($index, 1);
+    $scope.calculateTotal();
   }
 
-  init();
-});
+}]);
