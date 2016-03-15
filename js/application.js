@@ -22,8 +22,7 @@ $(document).ready(function(){
   };
 
   var removeItem = function(event) {
-    var $target = $(event.target);
-    $target.parents('.item').remove();
+    $(event.target).parents('.item').remove();
 
     calculateTotal();
   };
@@ -61,11 +60,9 @@ $(document).ready(function(){
   };
 
   var init = function() {
+    // Event listeners set up
     $('#calc-price-button').on('click', calculateTotal);
-
-    $('#new-item-create').on('click', function(){
-      createItem();
-    });
+    $('#new-item-create').on('click', createItem);
 
     // Just in case if there are any hard-coded items here
     $('input.quantity').on('keyup', updateQuantity);
