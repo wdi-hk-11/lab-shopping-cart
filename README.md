@@ -1,6 +1,6 @@
-Javascript and Jquery Exercise - Shopping Cart
-=============================
+# Shopping Cart - AngularJS Edition
 
-1. Fork the project on Github
-2. Clone the project to your computer
-3. Make the shopping cart total price calculator using Javascript and Bootstrap
+  1. If you want to take this code, `git clone` this repo.
+  1. Run `git checkout angular-solution`.
+  1. Run `bower install --save`.
+  1. Open `index.html`.
