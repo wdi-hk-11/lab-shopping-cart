@@ -15,6 +15,76 @@
     <link href="css/custom.css" rel="stylesheet">
   </head>
   <body>
-    
+<h1>Shopping Cart</h1>
+<!-- can also use grid
+
+also, when using table, do not put <container> inside (for Bootstrap) -->
+  <table style="width:100%">
+  <!-- one table row is <tr></tr> -->
+  <!-- Salmon row -->
+  <tr>
+    <td>Salmon</td>
+    <td>$60.00</td>
+    <td class='QTY'>QTY</td>
+    <td><input type="text" id="Salmon" value="0"></td>
+    <td><button>Cancel</button></td>
+    <td class = 'subtotal'>$0.00</td>
+  </tr>
+<!-- Tuna row -->
+  <tr>
+    <td>Tuna</td>
+    <td>$50.00</td>
+    <td class='QTY'>QTY</td>
+    <td><input type="text" id="Tuna" value="0"></td>
+    <td><button>Cancel</button></td>
+    <td class = 'subtotal'>$0.00</td>
+  </tr>
+
+  <tr>
+    <td>Pork</td>
+    <td>$40.00</td>
+    <td class='QTY'>QTY</td>
+    <td><input type="text" id="Pork" value="0"></td>
+    <td><button>Cancel</button></td>
+    <td class = 'subtotal'>$0.00</td>
+  </tr>
+
+  <tr>
+    <td>Cereal</td>
+    <td>$45.00</td>
+    <td class='QTY'>QTY</td>
+    <td><input type="text" id="Cereal" value="0"></td>
+    <td><button>Cancel</button></td>
+    <td class = 'subtotal'>$0.00</td>
+  </tr>
+
+  <tr>
+    <td>Milk</td>
+    <td>$20.00</td>
+    <td class="QTY">QTY</td>
+    <td><input type="text" id="Milk" value="0"></td>
+    <td><button class='cancel'>Cancel</button></td>
+    <td class = 'subtotal'>$0.00</td>
+  </tr>
+
+  <!-- adding new item and price row -->
+   <tr>
+    <td><input type="text" id="newitem" value=""></td>
+    <td><input type="text" id="newprice" value=""></td>
+    <td class = 'subtotal'><button class='create'>Create</button></td>
+  </tr>
+
+<!-- Calculate Prices button block -->
+  <tr class = 'calculate'>
+    <td>
+     <button id = "calculate" class="btn btn-default" type="submit">Calculate Prices</button>
+    </td>
+  </tr>
+
+</table>
+<!-- end of table -->
+
+ <h1>Total Price:</h1>
+    <h1 class = 'totalprice'>$0.00</h1>
   </body>
 </html>
