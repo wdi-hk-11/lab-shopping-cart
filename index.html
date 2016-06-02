@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Shopping Cart</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,6 +16,48 @@
     <link href="css/custom.css" rel="stylesheet">
   </head>
   <body>
-    
+  <center><h1>Shopping Cart</h1></center>
+
+   <section id="itemslist" class="container">
+<div class="item row">
+
+  <div class=" col-xs-3" id="itemname">
+Beef
+  </div>
+
+  <div class = "col-xs-3 itemprice">
+  60
+  </div>
+
+ <div class="item-qty col-xs-3">
+          <label>QTY</label>
+          <input class="quantity" value="0">
+          <button class="cancel">Cancel</button>
+  </div>
+
+  <div class= "col-xs-3 selectedprice ">
+ $0
+  </div>
+  </div>
+  </section>
+
+<div class=" item row">
+  <div class="col-xs-3">  <input id="newitem"> </div>
+  <div class="col-xs-3"> <input id="newprice"></div>
+  <div class="col-xs-3"> <button id="new-item-create">Create</button>
+  </div>
+</div>
+
+
+<section>
+ <div class="item row">
+<div class="col-xs-3 col-xs-offset-9">  <button type="button" class="btn btn-success" id="calbutton">Calculate Price</button> </div>
+</div>
+  <section id="total">
+
+    <h3>TOTAL PRICE</h3>
+    <h4>$0.00</h4>
+  </section>
+
   </body>
 </html>
