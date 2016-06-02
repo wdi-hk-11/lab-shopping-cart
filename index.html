@@ -13,8 +13,71 @@
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
+
+    <title>Shopping Cart</title>
+
   </head>
+
+
   <body>
-    
-  </body>
+
+  <section id="part1" class="container">
+   <div class="row">
+          <div class="col-xs-12" ><h1>Shopping Cart</h1></div>
+
+
+  </section>
+
+  <section id="part2" class="container">
+  <div class="row">
+          <div class="col-xs-3" >Product</div>
+
+          <div class="col-xs-3" >unit-Price</div>
+
+          <div class="col-xs-4" >Quantity</div>
+
+          <div class="col-xs-1" >Subtotal</div>
+
+  </div>
+  </section>
+
+
+<section id="itemlist" class="container">
+
+  <div class="item row">
+        <div class="col-xs-3" >
+          <input class="product_name form-control">
+        </div>
+
+
+
+        <div class="col-xs-3" >
+          <input class="product_price form-control" >
+        </div>
+
+
+        <div class="col-xs-4" id="quantity">
+           <button class="create btn btn-info">Create</button>
+        </div>
+
+   </div>
+
+  <div class="item row">
+              <div class="col-xs-12" ><h1>Total Price</h1></div>
+               <div class="col-xs-12 totalprice"  ><h1 class="totalprice">$ 0.00</h1></div>
+  </div>
+
+      <div class="row">
+
+              <div class="col-xs-3 col-xs-offset-9" >
+                  <button class="calculate  btn btn-success">calculate price</button>
+              </div>
+
+
+       </div>
+  </section>
+
+</body>
 </html>
+
+

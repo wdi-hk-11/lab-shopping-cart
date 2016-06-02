@@ -1,0 +1,20 @@
+.totalprice {
+
+  font-size: 45px;
+  color:grey;
+}
+
+.form-control{
+
+  width:200px;
+  display: inline;
+}
+
+
+
+.productname .unitpriced {
+
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
