@@ -12,21 +12,21 @@ $(document).ready(function(){
     } else {
       //add to table
       var newItem = '<tr class="itemRow">'+
-              '<td>'+ itemName +'</td>'+
-              '<td class="itemPrice">$'+ Number(itemPrice).toFixed(2) +'</td>' +
-              '<td>'+
-                '<form class="form-inline">' +
-                  '<div class="form-group">'+
-                    '<div class="input-group">' +
-                      '<span class="input-group-addon">QTY</span>' +
-                      '<input type="text" class="form-control itemQuantity" placeholder="Amount">' +
-                    '</div> ' +
-                     '<button type="button" class="btn btn-default btn-cancel">Cancel</button>' +
-                   '</div>' +
-                '</form>' +
-              '</td>' +
-              '<td class="itemTotal">$0.00</td>' +
-            '</tr>';
+                      '<td>'+ itemName +'</td>'+
+                      '<td class="itemPrice">$'+ Number(itemPrice).toFixed(2) +'</td>' +
+                      '<td>'+
+                        '<form class="form-inline">' +
+                          '<div class="form-group">'+
+                            '<div class="input-group">' +
+                              '<span class="input-group-addon">QTY</span>' +
+                              '<input type="text" class="form-control itemQuantity" placeholder="Amount">' +
+                            '</div> ' +
+                             '<button type="button" class="btn btn-default btn-cancel">Cancel</button>' +
+                           '</div>' +
+                        '</form>' +
+                      '</td>' +
+                      '<td class="itemTotal">$0.00</td>' +
+                    '</tr>';
 
           $(newItem).prependTo($('.table-cart'));
           $('#createItemName').val('');
@@ -42,7 +42,7 @@ $(document).ready(function(){
     $(this).closest('tr').remove();
   };
 
-
+  //calculate item when inputs quantity
   var calculateItem = function(index,item) {
     var itemTotal = $('.itemTotal', item);
     var inputQuantity = $('.itemQuantity', item).val();
@@ -51,7 +51,7 @@ $(document).ready(function(){
     itemTotal.text('$' + total.toFixed(2));
   }
 
-  //calculate item when inputs quantity
+  //calculate item for each row
   var calculateItems = function() {
     $('.itemRow').each(calculateItem);
   };
