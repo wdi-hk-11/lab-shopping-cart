@@ -45,7 +45,7 @@ $(document).ready(function(){
         '<div class="item-qty col-xs-3">' +
           '<label>QTY</label>' +
           '<input class="quantity" value="0">' +
-          '<button class="cancel">Cancel</button>' +
+          '<button id="cancel-total" class="btn btn-danger">Cancel</button>' +
         '</div>' +
         '<div class="item-subtotal col-xs-2"> $0.00 </div>' +
       '</div>';
@@ -55,7 +55,7 @@ $(document).ready(function(){
       $('#new-item-unit-price').val('');
 
       $('input.quantity').off().on('keyup', updateQuantity);
-      $('.cancel').off().on('click', removeItem);
+      $('#cancel-total').off().on('click', removeItem);
     }
   };
 
@@ -63,7 +63,7 @@ $(document).ready(function(){
     $('#calc-price-button').on('click', calculateTotal);
     $('#new-item-create').on('click', createItem);
     $('input.quantity').on('keyup', updateQuantity);
-    $('.cancel').on('click', removeItem);
+    $('#cancel').on('click', removeItem);
   }
 
   init();
