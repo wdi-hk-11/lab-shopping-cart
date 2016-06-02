@@ -31,7 +31,7 @@ $(document).ready(function(){
     var itemName = $('#new-item-name').val();
     var itemUnitPrice = $('#new-item-unit-price').val();
 
-    // must check price is integer
+    // Price has to be an integer
     if ($.isNumeric(itemUnitPrice) === false){
       alert('Unit price must be a number');
     } else if (itemName === ''){
@@ -60,11 +60,8 @@ $(document).ready(function(){
   };
 
   var init = function() {
-    // Event listeners set up
     $('#calc-price-button').on('click', calculateTotal);
     $('#new-item-create').on('click', createItem);
-
-    // Just in case if there are any hard-coded items here
     $('input.quantity').on('keyup', updateQuantity);
     $('.cancel').on('click', removeItem);
   }
