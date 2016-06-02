@@ -1,5 +1,18 @@
 //add HTML to create first row
-function prependFirstRow(){$("#firstRow").prepend('<tr><td class="item"></td></td><td><div class="form-group quantity"></div><button type="button" class="btn btn-danger removeButton">Remove</button></form></td><td class="unitPrice"></td><td class="subTotal"></td></tr>')};
+function prependFirstRow(){
+  var html = "" +
+  '<tr>' +
+    '<td class="item"></td>' +
+    '<td>' +
+      '<div class="form-group quantity"></div>' +
+      '<button type="button" class="btn btn-danger removeButton">Remove</button>' +
+    '</td>' +
+    '<td class="unitPrice"></td>' +
+    '<td class="subTotal"></td>' +
+  '</tr>';
+
+  $("#firstRow").prepend(html)
+};
 
 //input form data into new row
 function inputData() {
@@ -11,35 +24,31 @@ function inputData() {
   $(".item").first().html(itemName);
   $(".quantity").first().html(itemQuantity);
   $(".unitPrice").first().html(itemPrice);
-  $(".subTotal").first().html((itemQuantity*itemPrice));
+  $(".subTotal").first().html(itemQuantity*itemPrice);
 };
 
-//calculate and display total price - DOESN'T WORK
-$(document).on('click', '#calcBtn',function(){
-  // var total = parseInt($(".subTotal").html());
-var total = ($(".subTotal").each(function(){
-  var sum = 0;
-  sum += parseInt($(this).html()
-   )}
-  )
-);
-
-    $("#gTotal h2").append(total);
-
-  });
-
-
-
-
 //delete row
-$(document).on('click', '.removeButton', function () {
-  $(this).closest('tr').remove();
-  return false;
- });
-
+function bindDelete () {
+  $('.removeButton').off().on('click', function () {
+    $(this).closest('tr').remove();
+  });
+}
 
 $(document).ready(function(){
-$("#addItemBtn").click(prependFirstRow).click(inputData);
+  //calculate and display total price - DOESN'T WORK
+  $('#calcBtn').on('click',function(){
+    var total = 0;
+    $(".subTotal").each(function(index, elem){
+      total += parseInt($(elem).html());
+    })
+    $("#gTotal h2").html(total);
+  });
+
+  $("#addItemBtn").on('click', function(){
+    prependFirstRow();
+    inputData();
+    bindDelete();
+  });
 });
 
 

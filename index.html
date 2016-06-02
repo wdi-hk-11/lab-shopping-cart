@@ -1,63 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="js/application.js"></script>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="js/application.js"></script>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/custom.css" rel="stylesheet">
+  <title>Shopping cart | Will</title>
+</head>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
+<body>
+  <h1>Shopping cart</h1>
+  <table id="cartTable" class="table table-hover">
+    <!--       table headers     -->
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Unit Price</th>
+        <th>Sub-total</th>
+      </tr>
+    </thead>
+    <!--       end table headers -->
+    <!--       first table row -->
+    <tbody id="firstRow">
+      <tr id="addItems">
+        <td>
+          <div class="form-group">
+            <input type="text" class="form-control" id="itemName" placeholder="Item name">
+          </div>
+        </td>
+        <td>
+          <div class="form-group">
+            <input type="number" class="form-control" id="itemQuantity" placeholder="0">
+          </div>
+        </td>
+        <td>
+          <div class="form-group">
+            <input type="number" class="form-control" id="itemPrice" placeholder="0">
+          </div>
+        </td>
+        <td>
+          <button type="submit" class="btn btn-primary" id="addItemBtn">Add item</button>
+        </td>
+      </tr>
+      <tr id="calcPrice">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+          <button type="button" id="calcBtn" class="btn btn-success">Calculate price</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <h1>Total price</h1>
+    <div id="gTotal">
+      <h2></h2>
+    </div>
+  </div>
+</body>
 
-    <title>Shopping cart | Will</title>
-  </head>
-  <body>
-<h1>Shopping cart</h1>
-    <table id="cartTable" class="table table-hover">
-<!--       table headers     -->
-      <thead>
-        <tr>
-          <th>Item</th>
-          <th>Quantity</th>
-          <th>Unit Price</th>
-          <th>Sub-total</th>
-        </tr>
-      </thead>
-<!--       end table headers -->
-<!--       first table row -->
-      <tbody id="firstRow">
-
-         <tr id="addItems">
-          <td><div class="form-group">
-              <input type="text" class="form-control" id="itemName" placeholder="Item name">
-              </div>
-          </form></td>
-          <td><div class="form-group">
-              <input type="number" class="form-control" id="itemQuantity" placeholder="0">
-              </div>
-          </form></td>
-          <td><div class="form-group">
-              <input type="number" class="form-control" id="itemPrice" placeholder="0">
-              </div>
-          </form></td>
-          <td><button type="submit" class="btn btn-primary" id="addItemBtn">Add item</button>
-          </form></td>
-        </tr>
-        <tr id="calcPrice">
-          <td></td>
-          <td></td>
-          <td></td>
-          <td><button type="button" id="calcBtn" class="btn btn-success">Calculate price</button></td>
-        </tr>
-   </table>
-<div>
-<h1>Total price</h1>
-<div id="gTotal"><h2></h2></div>
-</div>
-  </body>
 </html>
