@@ -1,0 +1,12 @@
+ul {
+  list-style-type: none;
+  min-height: 200px;
+}
+
+li{
+  margin-bottom: 10.5px;
+}
+
+#calcTotalButton{
+  float: right;
+}
